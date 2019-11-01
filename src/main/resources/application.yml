@@ -1,0 +1,5 @@
+server:
+  port: 7910
+ribbon:
+  ReadTimeout: 3000
+  ConnectTimeout: 3000
