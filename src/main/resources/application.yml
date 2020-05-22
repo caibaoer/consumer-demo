@@ -1,5 +1,14 @@
+spring:
+  application:
+    name: consumer-demo
 server:
-  port: 7910
-ribbon:
-  ReadTimeout: 3000
-  ConnectTimeout: 3000
+  port: 7911
+eureka:
+  client:
+    service-url:
+       defaultZone: http://localhost:8761/eureka/
+#      defaultZone: http://172.19.1.113:8080/eureka/
+#ribbon:
+#  ReadTimeout: 3000
+#  ConnectTimeout: 3000
+#上面写与不写都可以啊  什么鬼

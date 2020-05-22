@@ -1,8 +1,9 @@
 package com.consumerdemo.controller;
 
+//import com.consumerdemo.client.ConsumerClient;
 import com.consumerdemo.client.ConsumerClient;
+import com.consumerdemo.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -17,24 +18,26 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class ConsumerController {
-    @Bean
-    public RestTemplate restTemplate(){
-        return  new RestTemplate();
-    }
-    @Autowired
-    RestTemplate restTemplate;
+
+
 
     @Autowired
     ConsumerClient consumerClient;
 
-    @RequestMapping("consumer/demo1")
-    public  String ConsumerDemo1(){
-        return this.restTemplate.getForObject("http://localhost:7900/provider/demo",String.class);
-    }
+    @Autowired
+    RestTemplate restTemplate;
 
     @RequestMapping("consumer/demo2")
     public  String ConsumerDemo2(){
-        int a=0;
-        return consumerClient.testGetFromProviderdemo();
+
+        /*int a=0;
+         */
+        Student student=new Student();
+        student.setId(1);
+        student.setName("hp");
+        student.setAddress("cq");
+        return consumerClient.testGetFromProviderdemo(student);
+      /* return restTemplate.getForObject("http://localhost:7901/provider/demo",String.class);*/
+
     }
 }
