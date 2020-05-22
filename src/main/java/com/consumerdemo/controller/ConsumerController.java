@@ -35,7 +35,7 @@ public class ConsumerController {
         Student student=new Student();
         student.setId(1);
         student.setName("hp");
-        student.setAddress("cq");
+        student.setAddress("cqA");
         return consumerClient.testGetFromProviderdemo(student);
       /* return restTemplate.getForObject("http://localhost:7901/provider/demo",String.class);*/
 
